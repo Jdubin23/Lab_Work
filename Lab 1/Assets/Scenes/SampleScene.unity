@@ -441,7 +441,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 909888776}
-  - component: {fileID: 909888775}
   - component: {fileID: 909888774}
   m_Layer: 0
   m_Name: Piece1
@@ -510,39 +509,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &909888775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909888773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17302121cad48ab49a00c999f2ea0f5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChessType
-  chessPiece: {fileID: 909888773}
-  pieceColor: {r: 0.48257625, g: 1, b: 0.3820755, a: 1}
-  Sprites:
-  - {fileID: 21300000, guid: 1952f2272c143b04b9bd025057eb7f5b, type: 3}
-  - {fileID: 21300000, guid: fe3ee826efec66d4c8d6800ec2b838c8, type: 3}
-  - {fileID: 21300000, guid: 0a9e8b41026d0e24a9730977952a040a, type: 3}
-  - {fileID: 21300000, guid: 4b83e99e14b25264caba8bc21cbc54db, type: 3}
-  - {fileID: 21300000, guid: e42e8136487f66c4f9b91e56d1cc9938, type: 3}
-  - {fileID: 21300000, guid: 8a6f127d144a255418aacfe1a43200b1, type: 3}
-  spriteRenderer: {fileID: 909888774}
-  endPoint: {fileID: 0}
-  N: {x: 0, y: 1, z: 0}
-  NE: {x: 1, y: 1, z: 0}
-  E: {x: 1, y: 0, z: 0}
-  SE: {x: 1, y: -1, z: 0}
-  S: {x: 0, y: -1, z: 0}
-  SW: {x: -1, y: -1, z: 0}
-  W: {x: -1, y: 0, z: -1}
-  NW: {x: -1, y: 1, z: 0}
-  pieceType: 0
-  stepDistance: 1
 --- !u!4 &909888776
 Transform:
   m_ObjectHideFlags: 0
@@ -551,13 +517,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909888773}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000042071906, y: 0.7071068, z: -0.70710677, w: 0.00000044405388}
-  m_LocalPosition: {x: 25.345139, y: 1, z: 19.92}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 9, y: 9, z: 9}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
+  m_Father: {fileID: 1214936562}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1073493221
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +624,73 @@ MonoBehaviour:
   width: 8
   height: 8
   cellSize: 5
+--- !u!1 &1214936561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1214936562}
+  - component: {fileID: 1214936563}
+  m_Layer: 0
+  m_Name: Piece
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1214936562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214936561}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.345139, y: 1, z: 19.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 909888776}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1214936563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214936561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17302121cad48ab49a00c999f2ea0f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChessType
+  chessPiece: {fileID: 909888773}
+  pieceColor: {r: 0.48257625, g: 1, b: 0.3820755, a: 1}
+  Sprites:
+  - {fileID: 21300000, guid: 1952f2272c143b04b9bd025057eb7f5b, type: 3}
+  - {fileID: 21300000, guid: fe3ee826efec66d4c8d6800ec2b838c8, type: 3}
+  - {fileID: 21300000, guid: 0a9e8b41026d0e24a9730977952a040a, type: 3}
+  - {fileID: 21300000, guid: 4b83e99e14b25264caba8bc21cbc54db, type: 3}
+  - {fileID: 21300000, guid: e42e8136487f66c4f9b91e56d1cc9938, type: 3}
+  - {fileID: 21300000, guid: 8a6f127d144a255418aacfe1a43200b1, type: 3}
+  spriteRenderer: {fileID: 909888774}
+  endPoint: {fileID: 0}
+  piece: {fileID: 0}
+  N: {x: 0, y: 1, z: 0}
+  NE: {x: 1, y: 1, z: 0}
+  E: {x: 1, y: 0, z: 0}
+  SE: {x: 1, y: -1, z: 0}
+  S: {x: 0, y: -1, z: 0}
+  SW: {x: -1, y: -1, z: 0}
+  W: {x: -1, y: 0, z: -1}
+  NW: {x: -1, y: 1, z: 0}
+  pieceType: 0
+  stepDistance: 1
 --- !u!1 &1754416145
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,4 +749,4 @@ SceneRoots:
   - {fileID: 1754416147}
   - {fileID: 1073493223}
   - {fileID: 1089142801}
-  - {fileID: 909888776}
+  - {fileID: 1214936562}
