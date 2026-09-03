@@ -4,53 +4,213 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 using Unity.Hierarchy;
 
-
+// calculates chess piece moves
 public class ChessHandle : MonoBehaviour
 {
-    public GameObject chessPiece;
-    private Color gizmoColor = Color.black; // could be subject to change
+    
 
-    public int pieceType = 6; // will be used for switch case to determine what chess piece it is.
-    
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void DrawKingMove()
     {
-        Vector3 position = transform.position;
+        Gizmos.color = Color.cyan;
+        Vector3 size = new Vector3(4, 1, 4);
+        //Vector3 position = transform.position;
+        
+        Gizmos.DrawCube(transform.position + transform.forward * 5, size);
+        Gizmos.DrawCube(transform.position + transform.right * 5, size);
+        Gizmos.DrawCube(transform.position + transform.forward * -5, size);
+        Gizmos.DrawCube(transform.position + transform.right * -5, size);
+        Gizmos.DrawCube(transform.position + transform.forward * 5 + transform.right * 5, size);
+        Gizmos.DrawCube(transform.position + transform.forward * 5 + transform.right * -5, size);
+        Gizmos.DrawCube(transform.position + transform.forward * -5 + transform.right * 5, size);
+        Gizmos.DrawCube(transform.position + transform.forward * -5 + transform.right * -5, size);
     }
 
-
-    private void FixedUpdate()
+    public void DrawPawnMove()
     {
-        if (Selection.Contains(chessPiece))
+        Gizmos.color = Color.cyan;
+        Vector3 size = new Vector3(4, 1, 4);
+        Gizmos.DrawCube(transform.position + transform.forward * 5, size);
+    }
+
+    public void DrawQueenMove()
+    {
+        Gizmos.color = Color.cyan;
+        Vector3 size = new Vector3(4, 1, 4);
+        int moves = 8;
+        Vector3 position = transform.position;
+
+        for (int i = 0; i <= moves; i++) //up
         {
-            // Draw Lines in here
+            Gizmos.DrawCube(position + new Vector3(0, 0, 5), size);
+            position = position + new Vector3(0, 0, 5);
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) //right
+        {
+            Gizmos.DrawCube(position + new Vector3(5, 0, 0), size);
+            position = position + new Vector3(5, 0, 0);
+        }
+        position = transform.position;
+        for (int i = 0; i <= moves; i++) //left
+        {
+            Gizmos.DrawCube(position + new Vector3(-5, 0, 0), size);
+            position = position + new Vector3(-5, 0, 0);
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) //down
+        {
+            Gizmos.DrawCube(position + new Vector3(0, 0, -5), size);
+            position = position + new Vector3(0, 0, -5);
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) //up + right
+        {
+            Gizmos.DrawCube(position + new Vector3(5, 0, 5), size);
+            position = position + new Vector3(5, 0, 5);
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) //left + up
+        {
+            Gizmos.DrawCube(position + new Vector3(-5, 0, 5), size);
+            position = position + new Vector3(-5, 0, 5);
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) // down + left
+        {
+            Gizmos.DrawCube(position + new Vector3(-5, 0, -5), size);
+            position = position + new Vector3(-5, 0, -5);
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) // right + down
+        {
+            Gizmos.DrawCube(position + new Vector3(5, 0, -5), size);
+            position = position + new Vector3(5, 0, -5);
+        }
+        position = transform.position;
+    }
 
-            switch (pieceType) //will change what type of piece this is.
+    public void DrawRookMove()
+    {
+        Gizmos.color = Color.cyan;
+        Vector3 size = new Vector3(4, 1, 4);
+        int moves = 8;
+        Vector3 position = transform.position;
+
+        for (int i = 0; i <= moves; i++) // Up
+        {
+            Gizmos.DrawCube(position + new Vector3(0, 0, 5), size);
+            position = position + new Vector3(0, 0, 5);
+        }
+        position = transform.position; // Right
+        for(int i = 0; i <= moves; i++)
+        {
+            Gizmos.DrawCube(position + new Vector3(5, 0, 0), size);
+            position = position + new Vector3(5, 0, 0);
+        }
+        position = transform.position;
+        for (int i = 0; i <= moves; i++) //left
+        {
+            Gizmos.DrawCube(position + new Vector3(-5, 0, 0), size);
+            position = position + new Vector3(-5, 0, 0);
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) //down
+        {
+            Gizmos.DrawCube(position + new Vector3(0, 0, -5), size);
+            position = position + new Vector3(0, 0, -5);
+        }
+        position = transform.position;
+    }
+
+    public void DrawBishopMove()
+    {
+        Gizmos.color = Color.cyan;
+        Vector3 size = new Vector3(4, 1, 4);
+        int moves = 8;
+        Vector3 position = transform.position;
+
+        for(int i = 0; i <= moves; i++) //up + right
+        {
+            Gizmos.DrawCube(position + new Vector3(5, 0, 5), size);
+            position = position + new Vector3(5, 0, 5);
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) //left + up
+        {
+            Gizmos.DrawCube(position + new Vector3(-5, 0, 5), size);
+            position = position + new Vector3(-5, 0, 5);
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) // down + left
+        {
+            Gizmos.DrawCube(position + new Vector3(-5, 0, -5), size);
+            position = position + new Vector3(-5, 0, -5);
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) // right + down
+        {
+            Gizmos.DrawCube(position + new Vector3(5, 0, -5), size);
+            position = position + new Vector3(5, 0, -5);
+        }
+        position = transform.position;
+    }
+
+    public void DrawKnightMove()
+    {
+        Gizmos.color = Color.cyan;
+        Vector3 size = new Vector3(4, 1, 4);
+        int moves = 1;
+        int knightMoves = 1;
+        Vector3 position = transform.position;
+        
+        for (int i = 0; i <= moves; i++) // Up
+        {
+            // Gizmos.DrawCube(position + new Vector3(0, 0, 5), size); //draws the cube
+            position = position + new Vector3(0, 0, 5); //sets position
+
+            if (i == moves)
             {
-                case 0:
-                    break;
-                case 1: //pawn
-                    break; 
-                case 2: //King
-                    break;
-                case 3: //Queen
-                    break;
-                case 4: //Rook
-                    break;
-                case 5: //Knight
-                    break;
-                case 6: //Bishop
-                    break;
-
+                Gizmos.DrawCube(position + new Vector3(5, 0, 0), size);
+                Gizmos.DrawCube(position + new Vector3(-5, 0, 0), size);
             }
         }
+        position = transform.position; // Right
+        for(int i = 0; i <= moves; i++)
+        {
+            // Gizmos.DrawCube(position + new Vector3(5, 0, 0), size);
+            position = position + new Vector3(5, 0, 0);
 
-    }
+            if (i == moves)
+            {
+                Gizmos.DrawCube(position + new Vector3(0, 0, 5), size);
+                Gizmos.DrawCube(position + new Vector3(0, 0, -5), size);
+            }
+        }
+        position = transform.position;
+        for (int i = 0; i <= moves; i++) //left
+        {
+            //Gizmos.DrawCube(position + new Vector3(-5, 0, 0), size);
+            position = position + new Vector3(-5, 0, 0);
 
-    private void OnDrawGizmos()
-    {
-        
+            if (i == moves)
+            {
+                Gizmos.DrawCube(position + new Vector3(0, 0, 5), size);
+                Gizmos.DrawCube(position + new Vector3(0, 0, -5), size);
+            }
+        }
+        position = transform.position;
+        for(int i = 0; i <= moves; i++) //down
+        {
+            //Gizmos.DrawCube(position + new Vector3(0, 0, -5), size);
+            position = position + new Vector3(0, 0, -5);
+
+            if (i == moves)
+            {
+                Gizmos.DrawCube(position + new Vector3(5, 0, 0), size);
+                Gizmos.DrawCube(position + new Vector3(-5, 0, 0), size);
+            }
+        }
+        position = transform.position;
     }
 
 

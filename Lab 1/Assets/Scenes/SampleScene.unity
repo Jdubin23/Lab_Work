@@ -498,7 +498,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fe3ee826efec66d4c8d6800ec2b838c8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1952f2272c143b04b9bd025057eb7f5b, type: 3}
   m_Color: {r: 0.48257625, g: 1, b: 0.3820755, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -634,6 +634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1214936562}
   - component: {fileID: 1214936563}
+  - component: {fileID: 1214936564}
   m_Layer: 0
   m_Name: Piece
   m_TagString: Untagged
@@ -681,6 +682,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 909888774}
   endPoint: {fileID: 0}
   piece: {fileID: 0}
+  chessHandle: {fileID: 1214936564}
   N: {x: 0, y: 1, z: 0}
   NE: {x: 1, y: 1, z: 0}
   E: {x: 1, y: 0, z: 0}
@@ -689,8 +691,22 @@ MonoBehaviour:
   SW: {x: -1, y: -1, z: 0}
   W: {x: -1, y: 0, z: -1}
   NW: {x: -1, y: 1, z: 0}
-  pieceType: 1
+  pieceType: 0
   stepDistance: 1
+--- !u!114 &1214936564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214936561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b983ab27c96664ba1f501037e4d436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChessHandle
+  chessPiece: {fileID: 0}
+  pieceType: 6
 --- !u!1 &1754416145
 GameObject:
   m_ObjectHideFlags: 0
